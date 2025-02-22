@@ -1,1 +1,46 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
 @import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@layer base {
+    h1 {
+        @apply text-rose-700 text-3xl font-bold;
+    }
+
+    h2 {
+        @apply text-rose-600 text-xl font-semibold;
+    }
+
+    p {
+        @apply text-gray-600 dark:text-gray-300;
+    }
+
+    body {
+        font-family: "Poppins", sans-serif;
+        scroll-behavior: smooth;
+        @apply bg-rose-50 dark:bg-gray-900 text-gray-800 dark:text-gray-100;
+    }
+}
+
+@layer components {
+    .card {
+        @apply bg-white dark:bg-gray-800 shadow-lg rounded-2xl p-5 border border-rose-200 dark:border-gray-700;
+    }
+
+    .btn-primary {
+        @apply bg-rose-500 text-white font-medium py-2 px-4 rounded-lg hover:bg-rose-600 transition-all;
+    }
+
+    .btn-secondary {
+        @apply bg-purple-100 text-purple-700 font-medium py-2 px-4 rounded-lg hover:bg-purple-200 transition-all;
+    }
+
+    .input-field {
+        @apply w-full border border-rose-300 dark:border-gray-600 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-rose-500;
+    }
+
+    .section {
+        @apply p-6 bg-amber-50 dark:bg-gray-800 rounded-xl shadow-md;
+    }
+}
