@@ -10,8 +10,13 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@emotion/react": "^11.14.0",
+    "@emotion/styled": "^11.14.0",
+    "@mui/material": "^6.4.5",
+    "@mui/x-date-pickers": "^7.27.0",
     "@supabase/supabase-js": "^2.48.1",
     "@tailwindcss/vite": "^4.0.8",
+    "dayjs": "^1.11.13",
     "lucide-react": "^0.475.0",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",

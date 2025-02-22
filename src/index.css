@@ -65,3 +65,8 @@
         @apply p-6 bg-amber-50 dark:bg-gray-800 rounded-xl shadow-md;
     }
 }
+
+.MuiPickersPopper {
+    z-index: 1500 !important;
+  }
+  
