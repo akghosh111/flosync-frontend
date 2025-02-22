@@ -15,6 +15,7 @@ function App() {
         <Route element={<Landing/>} path="/"/>
       </Routes>
       </BrowserRouter>
+      
     </>
   )
 }
