@@ -51,6 +51,7 @@ export const Landing = () => {
                     </div>
 
                 </div>
+                <p>Join thousands taking control of their cycle today!</p>
 
             </section>
         </>
