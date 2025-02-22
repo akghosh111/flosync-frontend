@@ -54,6 +54,27 @@ export const Landing = () => {
                 <p>Join thousands taking control of their cycle today!</p>
 
             </section>
+
+            <section id="community" className="min-h-screen flex flex-col items-center justify-center section">
+                <h1 className="mb-6 text-center">A Safe Space to Talk</h1>
+                <p className="md:text-xl mx-auto text-center px-8">No more <span className="line-through text-rose-500"><i>googling awkward period questions</i></span>. Join our anonymous support forum where real users share experiences and advice. Because you’re not alone in this journey.</p>
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-4 p-10">
+                    <div className="flex flex-col text-center card-highlight">
+                        <h3>Ask Anything, Get Support</h3>
+
+                    </div>
+                    <div className="flex flex-col text-center card-highlight">
+                        <h3>Completely Anonymous</h3>
+
+                    </div>
+                    <div className="flex flex-col text-center card-highlight">
+                        <h3>No Judgment, Just Community</h3>
+
+                    </div>
+
+                </div>
+                <button className="btn-primary">Join the Community</button>
+            </section>
         </>
 
     )

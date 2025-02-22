@@ -28,6 +28,27 @@
         @apply bg-white dark:bg-gray-800 shadow-lg rounded-2xl p-5 border border-rose-200 dark:border-gray-700;
     }
 
+    .card-highlight {
+        @apply bg-rose-100 dark:bg-gray-700 text-rose-800 dark:text-rose-300 shadow-lg rounded-2xl p-5 border border-rose-300 dark:border-gray-600 transition-all;
+    }
+
+    .card-highlight:hover {
+        @apply bg-rose-200 dark:bg-rose-800 scale-105 shadow-xl;
+    }
+
+    .dashboard-card {
+        @apply bg-white dark:bg-gray-800 shadow-md rounded-xl p-6 border border-gray-200 dark:border-gray-700 
+               hover:shadow-xl hover:border-rose-400 transition-all cursor-pointer;
+    }
+
+    .dashboard-card h3 {
+        @apply text-lg font-semibold text-rose-700 dark:text-rose-400;
+    }
+
+    .dashboard-card p {
+        @apply mt-2 text-gray-600 dark:text-gray-300;
+    }
+
     .btn-primary {
         @apply bg-rose-500 text-white font-medium py-2 px-4 rounded-lg hover:bg-rose-600 transition-all;
     }
