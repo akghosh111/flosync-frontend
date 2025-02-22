@@ -17,6 +17,42 @@ export const Landing = () => {
                 
 
             </section>
+
+            <section id="features" className="min-h-screen flex flex-col items-center justify-center section">
+                
+                <h1 className="mb-6 text-center">Why Choose Lunaflow?</h1>
+               
+                <p className="md:text-xl mx-auto text-center px-8">Tired of basic period trackers? Lunaflow goes beyond tracking dates. Get <b>AI-powered health insights, personalized wellness tips, and a supportive community</b>—all in one place.</p>  
+                
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-4 p-10">
+                    <div className="flex flex-col text-center card">
+                        <h3>Smart Cycle Predictions</h3>
+
+                    </div>
+                    <div className="flex flex-col text-center card">
+                        <h3>Symptom & Mood Insights</h3>
+
+                    </div>
+                    <div className="flex flex-col text-center card">
+                        <h3>Personalized Health Tips</h3>
+
+                    </div>
+                    <div className="flex flex-col text-center card">
+                        <h3>Anonymous Support Community</h3>
+
+                    </div>
+                    <div className="flex flex-col text-center card">
+                        <h3>Verified Online Resources</h3>
+
+                    </div>
+                    <div className="flex flex-col text-center card">
+                        <h3>AI Support 24*7</h3>
+
+                    </div>
+
+                </div>
+
+            </section>
         </>
 
     )
