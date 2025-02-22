@@ -1,10 +1,13 @@
 
+import Navbar from "./components/Navbar"
+
 function App() {
   
 
   return (
     <>
-      <h1>Flosync</h1>
+      <Navbar/>
+      <h1>Lunaflow</h1>
     </>
   )
 }
