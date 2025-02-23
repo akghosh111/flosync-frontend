@@ -29,7 +29,7 @@ const Navbar = () => {
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
           <div className="flex items-center justify-between">
             
-            <span className="text-3xl font-bold text-rose-700 dark:text-white">
+            <span className="text-3xl font-bold text-rose-700 dark:text-white logo">
               lunaflow
             </span>
 
