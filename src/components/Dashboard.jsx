@@ -11,7 +11,7 @@ const Dashboard = () => {
         {title: "Period Tracker", path: "/period-tracker"},
         {title: "Health Tips", path: "/health-tips"},
         {title: "Resources", path: "/resources"},
-        {title: "Community", path: "/chat"},
+        {title: "Anonymous Chat", path: "/chat"},
         {title: "AI Chatbot", path: "/chatbot"},
 
     ];

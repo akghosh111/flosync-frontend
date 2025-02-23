@@ -7,19 +7,26 @@ export const Chat = () => {
   const [user, setUser] = useState(null);
 
   useEffect(() => {
+    const fetchUser = async () => {
+      const { data: { session } } = await supabase.auth.getSession();
+      if (session) {
+        setUser(session.user);
+      }
+    };
+    fetchUser();
+
     const fetchMessages = async () => {
       const { data, error } = await supabase
         .from("messages")
         .select("*")
         .order("created_at", { ascending: true });
-  
+
       if (error) console.error(error);
       else setMessages(data);
     };
-  
+
     fetchMessages();
-  
-    // Subscribe to new messages
+
     const channel = supabase
       .channel("chat-room")
       .on(
@@ -30,12 +37,11 @@ export const Chat = () => {
         }
       )
       .subscribe();
-  
+
     return () => {
       supabase.removeChannel(channel);
     };
   }, []);
-  
 
   const sendMessage = async () => {
     if (!newMessage.trim() || !user) return;
@@ -49,31 +55,33 @@ export const Chat = () => {
 
     if (error) console.error(error);
     else setNewMessage("");
-    console.log(newMessage);
-  
   };
 
-  if (!user) return <p>Loading...</p>;
+  if (!user) return <p className="text-center text-lg mt-10">Loading chat...</p>;
 
   return (
     <div className="h-screen flex flex-col bg-pink-100">
       {/* Messages Container */}
       <div className="flex-1 overflow-auto p-4 bg-white shadow-md rounded-lg mt-20">
-        {messages.map((msg) => (
-          <div key={msg.id} className="p-2 border-b text-black">
-            <strong className="text-pink-700">{msg.sender_id.substring(0, 6)}</strong>: {msg.content}
-          </div>
-        ))}
+        {messages.length > 0 ? (
+          messages.map((msg) => (
+            <div key={msg.id} className="p-2 border-b text-black">
+              <strong className="text-pink-700">{msg.sender_id.substring(0, 6)}</strong>: {msg.content}
+            </div>
+          ))
+        ) : (
+          <p className="text-gray-500 text-center">No messages yet. Start the conversation!</p>
+        )}
       </div>
-  
-      {/* Message Input */}
+
+      {/* Input Box */}
       <div className="flex items-center p-2 bg-pink-200 border-t">
         <input
           type="text"
           value={newMessage}
           onChange={(e) => setNewMessage(e.target.value)}
           placeholder="Type a message..."
-          className="flex-1 p-2 rounded-lg outline-none border"
+          className="flex-1 p-2 rounded-lg outline-none border input-field"
         />
         <button
           onClick={sendMessage}
@@ -84,8 +92,4 @@ export const Chat = () => {
       </div>
     </div>
   );
-  
-  
-
 };
-

@@ -61,7 +61,7 @@ function App() {
               </ProtectedRoute>
             }
           />
-          <Route path="/community" element={<Chat/>}/>
+          <Route path="/chat" element={<Chat/>}/>
           
         
       </Routes>
