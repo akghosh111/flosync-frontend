@@ -10,6 +10,8 @@ import { BrowserRouter, Route, Routes, Navigate } from "react-router-dom";
 import { Chat } from "./components/Chat";
 import MoodLogger from "./components/MoodLogger";
 import Chatbot from "./components/Chatbot";
+import Resources from "./components/Resources";
+
 
 
 
@@ -85,6 +87,14 @@ function App() {
             element={
               <ProtectedRoute>
               <Chatbot supabase={supabase} />
+              </ProtectedRoute>
+            }
+          />
+          <Route 
+            path="/resources" 
+            element={
+              <ProtectedRoute>
+              <Resources />
               </ProtectedRoute>
             }
           />

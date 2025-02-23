@@ -21,13 +21,13 @@ export default function PeriodTracker() {
     ];
   };
 
-  // Fetch history from Supabase
+  
   useEffect(() => {
     const fetchHistory = async () => {
       const { data, error } = await supabase
         .from('period_cycles')
         .select('*')
-        .order('start_date', { ascending: false });  // Fetch most recent cycles first
+        .order('start_date', { ascending: false });  
 
       if (error) {
         console.error("Error fetching history:", error);
@@ -37,16 +37,16 @@ export default function PeriodTracker() {
     };
 
     fetchHistory();
-  }, []);  // Empty dependency array to run once on component mount
+  }, []);  
 
-  // Push data to Supabase
+  
   const handleSubmit = async () => {
     if (!startDate) {
       alert("Please select the start date");
       return;
     }
 
-    // Calculate the phases based on the start date and cycle length
+   
     const calculatedPhases = calculatePhases();
 
     const formattedPhases = calculatedPhases.map((phase) => ({
@@ -55,9 +55,9 @@ export default function PeriodTracker() {
       end_date: new Date(new Date(startDate).setDate(new Date(startDate).getDate() + phase.end - 1)),
     }));
 
-    // Insert the phase data into Supabase
+    
     const { data, error } = await supabase
-      .from('period_cycles')  // Make sure you have a `period_cycles` table in Supabase
+      .from('period_cycles')  
       .insert([
         {
           cycle_length: cycleLength,
@@ -70,7 +70,7 @@ export default function PeriodTracker() {
       console.error("Error inserting data:", error);
     } else {
       console.log("Cycle data successfully added:", data);
-      // Refresh history after adding new data
+      
       setHistory([data[0], ...history]);
     }
   };
