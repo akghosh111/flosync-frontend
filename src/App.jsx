@@ -1,3 +1,9 @@
+import { BrowserRouter, Route, Routes } from "react-router-dom"
+import { Landing } from "./Pages/Landing"
+
+import Navbar from "./components/Navbar"
+import Dashboard from "./components/Dashboard"
+import PeriodTracker from "./Pages/Tracker"
 import { BrowserRouter, Route, Routes, Navigate } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { Landing } from "./Pages/Landing";
@@ -43,6 +49,7 @@ function App() {
         <Route element={<Landing/>} path="/"/>
         <Route path="/login" element={<Login />} />
         <Route element={<Dashboard/>}  path="/dashboard" />
+        <Route element={<PeriodTracker />} path="/period-tracker"/>
         
       </Routes>
       </BrowserRouter>
