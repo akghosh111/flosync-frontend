@@ -6,6 +6,8 @@ import PeriodTracker from "./Pages/Tracker";
 import { useState, useEffect } from "react";
 import {supabase} from './supabaseClient';
 import Login from "./components/Login";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { Landing } from "./Pages/Landing";
 
 
 function App() {
