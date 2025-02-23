@@ -9,6 +9,7 @@ import Login from "./components/Login";
 import { BrowserRouter, Route, Routes, Navigate } from "react-router-dom";
 import { Chat } from "./components/Chat";
 import MoodLogger from "./components/MoodLogger";
+import Resources from "./components/Resources";
 
 
 
@@ -79,6 +80,7 @@ function App() {
               </ProtectedRoute>
             }
           />
+          <Route path="/resources" element={<Resources/>}/>
             
         
       </Routes>
