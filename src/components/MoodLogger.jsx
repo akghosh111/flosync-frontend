@@ -22,14 +22,28 @@ const MoodLogger = ({ supabase }) => {
   const [notes, setNotes] = useState('');
   const [moodHistory, setMoodHistory] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
-    fetchMoodHistory();
-  }, []);
+    if (supabase) {
+      fetchMoodHistory();
+    }
+  }, [supabase]);
 
   const fetchMoodHistory = async () => {
+    if (!supabase) {
+      setError('Supabase client is not initialized');
+      return;
+    }
+
     try {
-      const { data: { user } } = await supabase.auth.getUser();
+      const { data: { user }, error: authError } = await supabase.auth.getUser();
+      if (authError) throw authError;
+      if (!user) {
+        setError('User not authenticated');
+        return;
+      }
+
       const { data, error } = await supabase
         .from('mood_logs')
         .select('*')
@@ -43,23 +57,31 @@ const MoodLogger = ({ supabase }) => {
         date: new Date(entry.created_at).toLocaleDateString(),
         moodValue: Number(entry.mood_value)
       })).reverse());
+      setError(null);
     } catch (error) {
       console.error('Error fetching mood history:', error);
+      setError(error.message);
       setMoodHistory([]);
     }
   };
 
   const handleSubmit = async () => {
-    if (!selectedMood) return;
+    if (!selectedMood || !supabase) return;
     setIsLoading(true);
     try {
-      const { data: { user } } = await supabase.auth.getUser();
+      const { data: { user }, error: authError } = await supabase.auth.getUser();
+      if (authError) throw authError;
+      if (!user) {
+        setError('User not authenticated');
+        return;
+      }
+
       const { error } = await supabase.from('mood_logs').insert([
         {
           user_id: user.id,
           mood_value: selectedMood,
-          factors: selectedFactors,
-          notes: notes,
+          factors: selectedFactors.length > 0 ? selectedFactors : null,
+          notes: notes || null,
           created_at: new Date().toISOString(),
         }
       ]);
@@ -69,9 +91,11 @@ const MoodLogger = ({ supabase }) => {
       setSelectedMood(null);
       setSelectedFactors([]);
       setNotes('');
-      fetchMoodHistory();
+      setError(null);
+      await fetchMoodHistory();
     } catch (error) {
       console.error('Error logging mood:', error);
+      setError(error.message);
     } finally {
       setIsLoading(false);
     }
@@ -80,6 +104,15 @@ const MoodLogger = ({ supabase }) => {
   const toggleFactor = (factor) => {
     setSelectedFactors(prev => prev.includes(factor) ? prev.filter(f => f !== factor) : [...prev, factor]);
   };
+
+  if (error) {
+    return (
+      <div className="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative" role="alert">
+        <strong className="font-bold">Error: </strong>
+        <span className="block sm:inline">{error}</span>
+      </div>
+    );
+  }
 
   return (
     <div className="space-y-6">

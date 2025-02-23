@@ -62,9 +62,24 @@ function App() {
               </ProtectedRoute>
             }
           />
-          <Route path="/chat" element={<Chat/>}/>
-          <Route path="/mood-log" element={<MoodLogger/>}/>
-          
+          {/* <Route path="/chat" element={<Chat/>}/> */}
+          <Route
+            path="/chat"
+            element={
+              <ProtectedRoute>
+                <Chat />
+              </ProtectedRoute>
+            }
+          />
+          <Route 
+            path="/mood-log" 
+            element={
+              <ProtectedRoute>
+              <MoodLogger supabase={supabase} />
+              </ProtectedRoute>
+            }
+          />
+            
         
       </Routes>
       </BrowserRouter>
