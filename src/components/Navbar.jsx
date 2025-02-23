@@ -13,14 +13,21 @@ const Navbar = () => {
 
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
 
+  // useEffect(() => {
+  //   const checkAuth = async () => {
+  //     const { data: { session } } = await supabase.auth.getSession();
+  //     setIsAuthenticated(!!session);
+  //   };
+  //   checkAuth();
+  // }, []);
   useEffect(() => {
-    const checkAuth = async () => {
-      const { data: { session } } = await supabase.auth.getSession();
+    const { data: { subscription } } = supabase.auth.onAuthStateChange((_event, session) => {
       setIsAuthenticated(!!session);
-    };
-    checkAuth();
+    });
+  
+    return () => subscription.unsubscribe();
   }, []);
-
+  
   const handleLogout = async () => {
     await supabase.auth.signOut();
     setIsAuthenticated(false);

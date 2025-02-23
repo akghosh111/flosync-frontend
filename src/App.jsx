@@ -40,9 +40,9 @@ function App() {
 
   return (
     <>
+      <BrowserRouter>
       <Navbar/>
       <h1>Lunaflow</h1>
-      <BrowserRouter>
       <Routes>
         <Route element={<Landing/>} path="/"/>
         <Route path="/login" element={<Login />} />
@@ -60,6 +60,7 @@ function App() {
               </ProtectedRoute>
             }
           />
+          
         
       </Routes>
       </BrowserRouter>
