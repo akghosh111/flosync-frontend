@@ -1,6 +1,6 @@
-import { BrowserRouter, Route, Routes } from "react-router-dom"
-import { Landing } from "./Pages/Landing"
-import Navbar from "./components/Navbar"
+import { BrowserRouter, Route, Routes, Navigate } from "react-router-dom"
+import { Landing } from "./Pages/Landing";
+import Navbar from "./components/Navbar";
 import Dashboard from "./components/Dashboard"
 import PeriodTracker from "./Pages/Tracker"
 import { useState, useEffect } from "react";
@@ -13,13 +13,13 @@ function App() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    // Get initial session
+   
     supabase.auth.getSession().then(({ data: { session } }) => {
       setSession(session);
       setLoading(false);
     });
 
-    // Listen for auth changes
+
     const {
       data: { subscription },
     } = supabase.auth.onAuthStateChange((_event, session) => {
@@ -44,7 +44,11 @@ function App() {
       <Routes>
         <Route element={<Landing/>} path="/"/>
         <Route path="/login" element={<Login />} />
-        <Route element={<Dashboard/>}  path="/dashboard" />
+        <Route path="/dashboard" element={
+              <ProtectedRoute>
+                <Dashboard session={session} />
+              </ProtectedRoute>
+            }/>
         <Route element={<PeriodTracker />} path="/period-tracker"/>
         
       </Routes>
