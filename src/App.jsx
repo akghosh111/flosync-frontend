@@ -51,7 +51,15 @@ function App() {
                 <Dashboard session={session} />
               </ProtectedRoute>
         }/>
-        <Route element={<PeriodTracker />} path="/period-tracker"/>
+        
+        <Route
+            path="/period-tracker"
+            element={
+              <ProtectedRoute>
+                <PeriodTracker />
+              </ProtectedRoute>
+            }
+          />
         
       </Routes>
       </BrowserRouter>
