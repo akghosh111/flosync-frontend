@@ -1,4 +1,4 @@
-import { BrowserRouter, Route, Routes, Navigate } from "react-router-dom";
+
 import { Landing } from "./Pages/Landing";
 import Navbar from "./components/Navbar";
 import Dashboard from "./components/Dashboard";
@@ -7,7 +7,7 @@ import { useState, useEffect } from "react";
 import {supabase} from './supabaseClient';
 import Login from "./components/Login";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import { Landing } from "./Pages/Landing";
+
 
 
 function App() {
