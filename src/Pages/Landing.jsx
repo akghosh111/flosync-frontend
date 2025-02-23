@@ -75,6 +75,12 @@ export const Landing = () => {
                 </div>
                 <button className="btn-primary">Join the Community</button>
             </section>
+
+            <footer className="footer">
+                <p className="footer-content footer-logo">lunaflow</p>
+                <p className="text-gray-700 footer-copy">Built for DUHacks by Anukiran & Himani</p>
+                <p className="footer-copy">© {new Date().getFullYear()} Lunaflow. All rights reserved.</p>
+            </footer>
         </>
 
     )
