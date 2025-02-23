@@ -9,6 +9,7 @@ import Login from "./components/Login";
 import { BrowserRouter, Route, Routes, Navigate } from "react-router-dom";
 import { Chat } from "./components/Chat";
 import MoodLogger from "./components/MoodLogger";
+import Chatbot from "./components/Chatbot";
 
 
 
@@ -76,6 +77,14 @@ function App() {
             element={
               <ProtectedRoute>
               <MoodLogger supabase={supabase} />
+              </ProtectedRoute>
+            }
+          />
+          <Route 
+            path="/chatbot" 
+            element={
+              <ProtectedRoute>
+              <Chatbot supabase={supabase} />
               </ProtectedRoute>
             }
           />
