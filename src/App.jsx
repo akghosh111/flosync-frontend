@@ -1,16 +1,12 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom"
 import { Landing } from "./Pages/Landing"
-
 import Navbar from "./components/Navbar"
 import Dashboard from "./components/Dashboard"
 import PeriodTracker from "./Pages/Tracker"
-import { BrowserRouter, Route, Routes, Navigate } from "react-router-dom";
 import { useState, useEffect } from "react";
-import { Landing } from "./Pages/Landing";
 import {supabase} from './supabaseClient';
-import Navbar from "./components/Navbar";
 import Login from "./components/Login";
-import Dashboard from "./components/Dashboard";
+
 
 function App() {
   const [session, setSession] = useState(null);
