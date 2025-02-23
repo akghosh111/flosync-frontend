@@ -3,6 +3,7 @@ import { Landing } from "./Pages/Landing"
 
 import Navbar from "./components/Navbar"
 import Dashboard from "./components/Dashboard"
+import PeriodTracker from "./Pages/Tracker"
 
 function App() {
   
@@ -15,6 +16,7 @@ function App() {
       <Routes>
         <Route element={<Landing/>} path="/"/>
         <Route element={<Dashboard/>}  path="/dashboard" />
+        <Route element={<PeriodTracker />} path="/period-tracker"/>
         
       </Routes>
       </BrowserRouter>

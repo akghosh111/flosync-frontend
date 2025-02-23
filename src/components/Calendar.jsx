@@ -3,7 +3,7 @@ import { LocalizationProvider, DatePicker } from "@mui/x-date-pickers";
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import TextField from "@mui/material/TextField";
 import { ThemeProvider, createTheme } from "@mui/material/styles";
-import { useState } from "react";
+
 
 const customTheme = createTheme({
   components: {
@@ -31,16 +31,16 @@ const customTheme = createTheme({
   },
 });
 
-const Calendar = () => {
+export const Calendar = () => {
   
     const [selectedDate, setSelectedDate] = useState(null);
     
       return (
         <ThemeProvider theme={customTheme}>
-          <div className="mt-20 flex flex-col items-center gap-5">
-      <h2 className="text-rose-600 text-xl font-bold pl-3">
+          <div className="mt-5 flex flex-col items-center gap-5">
+      {/* <h2 className="text-rose-600 text-xl font-bold pl-3">
       Let's Keep Track of Your Cycle Together! 🌸
-      </h2>
+      </h2> */}
       <LocalizationProvider dateAdapter={AdapterDayjs}>
         <DatePicker
           label="Select Date"
@@ -50,9 +50,9 @@ const Calendar = () => {
             <TextField className="focus:outline-none focus:ring-2 focus:ring-rose-400" //not working blue outline looks bad TODO for anukiran
               {...params}
               sx={{
-                width: "300px",
+                width: "250px",
                 "& .MuiInputBase-root": {
-                  height: "56px",
+                  height: "40px",
                   fontSize: "1.2rem",
                 },
               }}
