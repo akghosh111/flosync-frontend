@@ -23,6 +23,10 @@ const Navbar = () => {
     setIsAuthenticated(false);
   };
 
+  const handleLinkClick = () => {
+    setIsMenuOpen(false);
+  };
+
   return (
     <>
       <nav className="fixed top-0 left-0 right-0 w-full bg-rose-100 dark:bg-gray-900 backdrop-blur-lg z-50 border-b border-rose-300 dark:border-gray-700">
@@ -73,11 +77,11 @@ const Navbar = () => {
           {/* Mobile Menu */}
           {isMenuOpen && (
             <div className="md:hidden mt-4 bg-rose-50 dark:bg-gray-800 rounded-lg shadow-md p-4">
-              <a href="#home" className="block px-4 py-2 rounded-lg hover:bg-rose-200 transition-all">Home</a>
-              <a href="#features" className="block px-4 py-2 rounded-lg hover:bg-rose-200 transition-all">Features</a>
-              <a href="#community" className="block px-4 py-2 rounded-lg hover:bg-rose-200 transition-all">Community</a>
+              <a onClick={handleLinkClick} href="#home" className="block px-4 py-2 rounded-lg hover:bg-rose-200 transition-all">Home</a>
+              <a onClick={handleLinkClick} href="#features" className="block px-4 py-2 rounded-lg hover:bg-rose-200 transition-all">Features</a>
+              <a onClick={handleLinkClick} href="#community" className="block px-4 py-2 rounded-lg hover:bg-rose-200 transition-all">Community</a>
               {isAuthenticated && (
-                <a href="/dashboard" className="block px-4 py-2 rounded-lg hover:bg-rose-200 transition-all">Dashboard</a>
+                <a onClick={handleLinkClick} href="/dashboard" className="block px-4 py-2 rounded-lg hover:bg-rose-200 transition-all">Dashboard</a>
               )}
 
             
