@@ -1,6 +1,4 @@
-import { BrowserRouter, Route, Routes, Navigate } from "react-router-dom"
-import { Landing } from "./Pages/Landing";
-import Navbar from "./components/Navbar";
+import Navbar from "./components/Navbar"
 import Dashboard from "./components/Dashboard"
 import PeriodTracker from "./Pages/Tracker"
 import { useState, useEffect } from "react";
