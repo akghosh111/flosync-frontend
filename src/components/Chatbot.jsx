@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import { Plus, Send, Pencil, Trash2, Check, X } from 'lucide-react';
 import { GoogleGenerativeAI } from '@google/generative-ai';
 
-
+//gemini ai
 const genAI = new GoogleGenerativeAI(import.meta.env.VITE_GEMINI_API_KEY);
 
 const Chatbot = ({ supabase }) => {
