@@ -7,6 +7,7 @@ import { useState, useEffect } from "react";
 import {supabase} from './supabaseClient';
 import Login from "./components/Login";
 import { BrowserRouter, Route, Routes, Navigate } from "react-router-dom";
+import { Chat } from "./components/Chat";
 
 
 
@@ -60,6 +61,7 @@ function App() {
               </ProtectedRoute>
             }
           />
+          <Route path="/community" element={<Chat/>}/>
           
         
       </Routes>

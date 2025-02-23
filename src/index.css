@@ -95,3 +95,7 @@
     z-index: 1500 !important;
   }
   
+  .chat-container { padding: 1rem; }
+  .messages { height: 300px; overflow-y: scroll; }
+  .message { margin-bottom: 0.5rem; }
+  
