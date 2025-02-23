@@ -83,7 +83,7 @@ const MoodLogger = ({ supabase }) => {
 
   return (
     <div className="space-y-6">
-      <div className="bg-rose-100 dark:bg-gray-800 rounded-lg p-6 shadow-md">
+      <div className="pt-16 bg-rose-100 dark:bg-gray-800 rounded-lg p-6 shadow-md">
         <h2 className="text-rose-900 dark:text-rose-300 text-xl font-semibold mb-4">How are you feeling today?</h2>
         <div className="grid grid-cols-5 gap-4 mb-6">
           {moodOptions.map(({ value, label, icon: Icon, color }) => (

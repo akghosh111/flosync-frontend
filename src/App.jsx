@@ -8,6 +8,7 @@ import {supabase} from './supabaseClient';
 import Login from "./components/Login";
 import { BrowserRouter, Route, Routes, Navigate } from "react-router-dom";
 import { Chat } from "./components/Chat";
+import MoodLogger from "./components/MoodLogger";
 
 
 
@@ -62,6 +63,7 @@ function App() {
             }
           />
           <Route path="/chat" element={<Chat/>}/>
+          <Route path="/mood-log" element={<MoodLogger/>}/>
           
         
       </Routes>
