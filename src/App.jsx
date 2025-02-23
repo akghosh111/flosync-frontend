@@ -6,7 +6,7 @@ import PeriodTracker from "./Pages/Tracker";
 import { useState, useEffect } from "react";
 import {supabase} from './supabaseClient';
 import Login from "./components/Login";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { BrowserRouter, Route, Routes, Navigate } from "react-router-dom";
 
 
 
@@ -50,7 +50,7 @@ function App() {
               <ProtectedRoute>
                 <Dashboard session={session} />
               </ProtectedRoute>
-            }/>
+        }/>
         <Route element={<PeriodTracker />} path="/period-tracker"/>
         
       </Routes>
