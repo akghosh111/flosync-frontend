@@ -1,4 +1,12 @@
+import { useNavigate } from "react-router-dom"
+
 export const Landing = () => {
+    const navigate = useNavigate();
+
+    const handleButtonClick = () => {
+        navigate('/login');
+    };
+
     return (
         <>
             <section id="home" className="pt-24 min-h-screen flex items-center justify-center">
@@ -9,8 +17,8 @@ export const Landing = () => {
                         <p className="md:text-xl">AI-powered menstrual insights, mood tracking, and a safe space to connect—because your cycle deserves more than just a calendar.</p>
                     </div>
                     <div className="mx-auto text-center pt-6 flex justify-center space-x-4">
-                        <button className="btn-primary">Get Started Free</button>
-                        <button className="btn-secondary">See How It Works</button>
+                        <button className="btn-primary" onClick={handleButtonClick}>Get Started Free</button>
+                        <button className="btn-secondary" onClick={() => window.location.href = "#features"}>See How It Works</button>
                     </div>
 
                 </div>
@@ -73,7 +81,7 @@ export const Landing = () => {
                     </div>
 
                 </div>
-                <button className="btn-primary">Join the Community</button>
+                <button className="btn-primary" onClick={handleButtonClick}>Join the Community</button>
             </section>
 
             <footer className="footer">
