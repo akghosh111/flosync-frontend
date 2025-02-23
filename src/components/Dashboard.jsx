@@ -25,7 +25,7 @@ const Dashboard = () => {
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                 {features.map((feature, index) => (
                     
-                    <div key={index} onClick={feature.path} >
+                    <div key={index} onClick={() => navigate(feature.path)} >
                         <h3 className="dashboard-card">{feature.title}</h3>
                         {/* <ArrowRight size={24} className="text-rose-600" /> */}
                     
